@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <title>Price prediction</title>
+    </head>
+    <body>
+        <form method="post" action="/submit" class="my-form">
+            <div class="form-content">
+                {% block content %}
+                    <label>Choose a brand:</label>
+                    <select name="brand">
+                        {% for item in brands %}
+                            <option value="{{ item }}">{{ item }}</option>'
+                        {% endfor %}
+                    </select>
+        
+                    <br>
+        
+                    <label">Is it available now?</label>
+                    <select name="available">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+        
+                    <br>
+        
+                    <label>Choose a condition:</label>
+                    <select name="condition">
+                        {% for item in conditions %}
+                            <option value="{{ item }}">{{ item }}</option>'
+                        {% endfor %}
+                    </select>
+        
+                    <br>
+        
+                    <label>Is it on sale?</label>
+                    <select name="sale">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+            
+                    <br>
+        
+                    <label>Choose source:</label>
+                    <select name="source">
+                        {% for item in sources %}
+                            <option value="{{ item }}">{{ item }}</option>'
+                        {% endfor %}
+                    </select>
+            
+                    <br>
+        
+                    <label>Choose shipping condition:</label>
+                    <select name="shipping">
+                        {% for item in shippings %}
+                            <option value="{{ item }}">{{ item }}</option>'
+                        {% endfor %}
+                    </select>
+        
+                    <br>
+        
+                    <label>Does special offer exists?</label>
+                    <select name="offer">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+        
+                    <br>
+        
+                    <label>Is return available?</label>
+                    <select name="return">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+        
+                    <br>
+        
+                    <label>Choose manufacturer:</label>
+                    <select name="manufacturer">
+                        {% for item in manufacturers %}
+                            <option value="{{ item }}">{{ item }}</option>'
+                        {% endfor %}
+                    </select>
+        
+                    <br>
+        
+                    <label>Choose category:</label>
+                    <select name="category">
+                        {% for item in categories %}
+                            <option value="{{ item }}">{{ item }}</option>'
+                        {% endfor %}
+                    </select>
+        
+                    <br>
+        
+                    <label>Choose color:</label>
+                    <select name="color">
+                        {% for item in colors %}
+                            <option value="{{ item }}">{{ item }}</option>'
+                        {% endfor %}
+                    </select>
+        
+                    <br>
+                {% endblock %}
+                <input type="submit" value="Predict">
+            </form>
+        </div>
+    </body>
+</html>
