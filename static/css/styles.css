@@ -1,0 +1,53 @@
+body {
+    background-color: #F4C8A5;
+    text-align: left;
+    padding-left: 5%;
+    padding-top: 3%;
+    font: "Fira Sans";
+}
+
+.my-form {
+    background-color: #F5EFDA;
+    font-size: 18px;
+    width: 400px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #5D2317;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.my-form .form-content {
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.my-form select {
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    color: #5D2317;
+}
+
+.my-form input {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 37%;
+    border: none;
+    color: #5D2317;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+.my-form input:hover {
+    color: #b55d4c;
+    font-weight: bold;
+}
+
+.prediction {
+    color: #5D2317;
+    font-size: 20px;
+    font-weight: 600;
+}
