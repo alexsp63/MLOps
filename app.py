@@ -4,7 +4,7 @@ import logging
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 import numpy as np
 import joblib
-import pickle
+import json
 
 app = Flask(__name__)
 
@@ -44,8 +44,8 @@ def predict_value(data):
         'manufacturer': data['manufacturer'],
         'is_sale': data['is_sale']
     }
-    with open('D:/Maga/6th module/MLOps/ml/data/params/decision_tree.pkl', 'rb') as f:
-        model_params = pickle.load(f)
+    with open('D:/Maga/6th module/MLOps/ml/data/params/decision_tree.json', 'r') as f:
+        model_params = json.load(f)
         
     return get_prediction(data, model_params)
             
