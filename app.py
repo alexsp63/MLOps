@@ -1,10 +1,8 @@
 from flask import Flask, request, render_template
-import random
 import logging
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 import numpy as np
 import joblib
-import json
 
 app = Flask(__name__)
 
@@ -25,29 +23,20 @@ def transform_input_data(input_data):
             transformed_data[col] = 0
     return transformed_data
 
-def get_prediction(data, model_params):
-    if 'prediction' in model_params:
-        return model_params['prediction']
-    else:
-        field_name = model_params['field']
-        conditions = model_params['conditions']
-        bound_value = conditions['bound']
-        if data[field_name] <= bound_value:
-            return get_prediction(data, conditions['lower_or_equal'])
-        else:
-            return get_prediction(data, conditions['upper'])    
+def get_prediction(data, model):
+    return model.predict(data)
 
 def predict_value(data):
-    '''Предсказание значений на основе выведенного алгоритма'''
-    data = {
-        'source': data['source'],
-        'manufacturer': data['manufacturer'],
-        'is_sale': data['is_sale']
-    }
-    with open('D:/Maga/6th module/MLOps/ml/data/params/decision_tree.json', 'r') as f:
-        model_params = json.load(f)
-        
-    return get_prediction(data, model_params)
+    '''Предсказание значений на основе сохраненной модели'''
+    data_keys = [
+        'brand', 'categories', 'colors', 'is_available', 'condition', 'is_sale',
+        'source', 'shipping', 'is_offer', 'is_return', 'manufacturer'
+    ]
+    ordered_data = np.array([data.get(key) for key in data_keys]).reshape(1, len(data))
+    model_filename = 'D:/Maga/6th module/MLOps/ml/data/models/xgb.save'
+    model = joblib.load(model_filename)
+
+    return get_prediction(ordered_data, model)
             
 def transform_prediction(predict_value_norm):
     scaler_filename = 'D:/Maga/6th module/MLOps/ml/data/scalers/y_scaler.save'
