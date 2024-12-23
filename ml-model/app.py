@@ -104,5 +104,5 @@ def predict():
     return json_response(result)
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='ml-model/log/development.log', level=logging.DEBUG)
+    # logging.basicConfig(filename='ml-model/log/development.log', level=logging.DEBUG)
     app.run(debug=True, port=5001)
