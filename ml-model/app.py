@@ -5,7 +5,7 @@ import numpy as np
 import joblib
 
 app = Flask(__name__)
-labels_save_path = 'ml-model/ml/data/encoders/%s_classes.npy'
+labels_save_path = 'ml/data/encoders/%s_classes.npy'
 
 def get_labels():
     brands = np.load(labels_save_path % 'brand', allow_pickle=True).tolist()
@@ -40,7 +40,7 @@ def transform_input_data(input_data):
     boolean_cols = ['is_available', 'is_sale', 'is_offer', 'is_return']
     for col in categorical_cols:
         le = LabelEncoder()
-        save_path = f'ml-model/ml/data/encoders/{col}_classes.npy'
+        save_path = f'ml/data/encoders/{col}_classes.npy'
         le.classes_ = np.load(save_path, allow_pickle=True)
         transformed_data[col] = le.transform([input_data[col]])[0]
     for col in boolean_cols:
@@ -54,7 +54,7 @@ def get_prediction(data, model):
     return model.predict(data)
             
 def transform_prediction(predict_value_norm):
-    scaler_filename = 'ml-model/ml/data/scalers/y_scaler.save'
+    scaler_filename = 'ml/data/scalers/y_scaler.save'
     scaler = joblib.load(scaler_filename)
     return scaler.inverse_transform(np.array([predict_value_norm]).reshape(-1, 1))[0][0]
 
@@ -65,7 +65,7 @@ def predict_value(data):
         'source', 'shipping', 'is_offer', 'is_return', 'manufacturer'
     ]
     ordered_data = np.array([data.get(key) for key in data_keys]).reshape(1, len(data))
-    model_filename = 'ml-model/ml/data/models/xgb.save'
+    model_filename = 'ml/data/models/xgb.save'
     model = joblib.load(model_filename)
 
     return get_prediction(ordered_data, model)
@@ -104,5 +104,5 @@ def predict():
     return json_response(result)
 
 if __name__ == '__main__':
-    # logging.basicConfig(filename='ml-model/log/development.log', level=logging.DEBUG)
+    # logging.basicConfig(filename='log/development.log', level=logging.DEBUG)
     app.run(debug=True, port=5001)
