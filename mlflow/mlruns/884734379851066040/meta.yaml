@@ -1,0 +1,6 @@
+artifact_location: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/884734379851066040
+creation_time: 1736797464153
+experiment_id: '884734379851066040'
+last_update_time: 1736797464153
+lifecycle_stage: active
+name: XGBRegressor

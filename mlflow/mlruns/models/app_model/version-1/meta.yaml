@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1736798605486
+current_stage: None
+description: null
+last_updated_timestamp: 1736798605486
+name: app_model
+run_id: d46c1d66ec27463ba6d01ab5adce5ed0
+run_link: null
+source: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/815697592354651329/d46c1d66ec27463ba6d01ab5adce5ed0/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/815697592354651329/d46c1d66ec27463ba6d01ab5adce5ed0/artifacts/model
+user_id: null
+version: 1

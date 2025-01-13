@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/815697592354651329/d46c1d66ec27463ba6d01ab5adce5ed0/artifacts
+end_time: 1736797830286
+entry_point_name: ''
+experiment_id: '815697592354651329'
+lifecycle_stage: active
+run_id: d46c1d66ec27463ba6d01ab5adce5ed0
+run_name: RandomForestRegressor
+run_uuid: d46c1d66ec27463ba6d01ab5adce5ed0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736797810443
+status: 3
+tags: []
+user_id: alexsp

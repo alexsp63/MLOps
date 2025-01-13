@@ -1,0 +1,6 @@
+artifact_location: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/815697592354651329
+creation_time: 1736797810430
+experiment_id: '815697592354651329'
+last_update_time: 1736797810430
+lifecycle_stage: active
+name: RandomForestRegressor
