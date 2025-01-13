@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  ml-service:
+    image: alexsp63/my-ml-service:latest
+    container_name: ml-service
+    networks:
+      - development
+    ports:
+      - "5001:5001"
+
+  web-service: 
+    image: alexsp63/my-web-service:latest
+    container_name: web-service
+    depends_on:
+      ml-service:
+        condition: service_started
+    networks:
+      - development
+    ports:
+      - "5000:5000"
+    environment:
+      ML_SERVICE_HOST: http://ml-service
+
+networks:
+  development:
