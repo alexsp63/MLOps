@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/885306822414527671/915c495f80bc4602a1ec7276559dfcfe/artifacts
+end_time: 1736794294691
+entry_point_name: ''
+experiment_id: '885306822414527671'
+lifecycle_stage: active
+run_id: 915c495f80bc4602a1ec7276559dfcfe
+run_name: 'LinearRegression:'
+run_uuid: 915c495f80bc4602a1ec7276559dfcfe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736794294613
+status: 3
+tags: []
+user_id: alexsp

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/884734379851066040/dee2012984d74d82aab334711a16d339/artifacts
+end_time: 1736797637207
+entry_point_name: ''
+experiment_id: '884734379851066040'
+lifecycle_stage: active
+run_id: dee2012984d74d82aab334711a16d339
+run_name: XGBRegressor
+run_uuid: dee2012984d74d82aab334711a16d339
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736797634274
+status: 3
+tags: []
+user_id: alexsp

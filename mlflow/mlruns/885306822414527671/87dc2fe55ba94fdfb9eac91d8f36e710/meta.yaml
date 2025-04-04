@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Maga/6th module/MLOps/mlflow/mlruns/885306822414527671/87dc2fe55ba94fdfb9eac91d8f36e710/artifacts
+end_time: 1736794310160
+entry_point_name: ''
+experiment_id: '885306822414527671'
+lifecycle_stage: active
+run_id: 87dc2fe55ba94fdfb9eac91d8f36e710
+run_name: 'MLPRegressor:'
+run_uuid: 87dc2fe55ba94fdfb9eac91d8f36e710
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736794310107
+status: 3
+tags: []
+user_id: alexsp

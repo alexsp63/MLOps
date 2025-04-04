@@ -3,9 +3,15 @@ import logging, json
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 import numpy as np
 import joblib
+import pandas as pd
+import mlflow
 
 app = Flask(__name__)
-labels_save_path = 'ml/data/encoders/%s_classes.npy'
+labels_save_path = './ml/data/encoders/%s_classes.npy'
+mlflow.set_tracking_uri("file:///D:/Maga/6th module/MLOps/mlflow/mlruns")
+run_id = 'd46c1d66ec27463ba6d01ab5adce5ed0'
+mlflow_model_path = f'runs:/{run_id}/model'
+model = mlflow.pyfunc.load_model(mlflow_model_path)
 
 def get_labels():
     brands = np.load(labels_save_path % 'brand', allow_pickle=True).tolist()
@@ -40,7 +46,7 @@ def transform_input_data(input_data):
     boolean_cols = ['is_available', 'is_sale', 'is_offer', 'is_return']
     for col in categorical_cols:
         le = LabelEncoder()
-        save_path = f'ml/data/encoders/{col}_classes.npy'
+        save_path = f'./ml/data/encoders/{col}_classes.npy'
         le.classes_ = np.load(save_path, allow_pickle=True)
         transformed_data[col] = le.transform([input_data[col]])[0]
     for col in boolean_cols:
@@ -54,7 +60,7 @@ def get_prediction(data, model):
     return model.predict(data)
             
 def transform_prediction(predict_value_norm):
-    scaler_filename = 'ml/data/scalers/y_scaler.save'
+    scaler_filename = './ml/data/scalers/y_scaler.save'
     scaler = joblib.load(scaler_filename)
     return scaler.inverse_transform(np.array([predict_value_norm]).reshape(-1, 1))[0][0]
 
@@ -64,11 +70,13 @@ def predict_value(data):
         'brand', 'categories', 'colors', 'is_available', 'condition', 'is_sale',
         'source', 'shipping', 'is_offer', 'is_return', 'manufacturer'
     ]
-    ordered_data = np.array([data.get(key) for key in data_keys]).reshape(1, len(data))
-    model_filename = 'ml/data/models/xgb.save'
-    model = joblib.load(model_filename)
+    ordered_data = [[data.get(key) for key in data_keys]]
+    # model_filename = './ml/data/models/xgb.save'
+    # model = joblib.load(model_filename)
+    data = pd.DataFrame(ordered_data)
+    print(data)
 
-    return get_prediction(ordered_data, model)
+    return get_prediction(data, model)
 
 # Define Flask routes
 @app.route("/")
